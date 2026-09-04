@@ -235,7 +235,7 @@ function ClimateProducts() {
 
   const totalActiveFilters = Object.values(selectedFilters).reduce((acc, curr) => acc + curr.length, 0);
 
-  const filteredList = climateProductsData.filter(item => {
+ const filteredList = climateProductsData.filter(item => {
     const numericPrice = parsePrice(item.price);
     const numericDiscount = Number(item.discount) || 0;
     const discountAmount = Math.round(numericPrice * (numericDiscount / 100));
@@ -251,8 +251,9 @@ function ClimateProducts() {
       if (catKey === 'Brend') {
         matchFound = selectedValues.some(val => {
           const brandStr = String(item.brand || '').trim().toLowerCase();
+          const titleStr = String(item.title || '').trim().toLowerCase();
           const targetVal = val.trim().toLowerCase();
-          return brandStr.includes(targetVal) || String(item.title || '').toLowerCase().includes(targetVal);
+          return brandStr === targetVal || brandStr.includes(targetVal) || titleStr.includes(targetVal);
         });
       } else if (item.propertiesList) {
         const propMatch = item.propertiesList.find(p => p.label === catKey);
