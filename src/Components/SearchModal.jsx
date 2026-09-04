@@ -37,7 +37,7 @@ function SearchModal({ isOpen, onClose, products, searchQuery, setSearchQuery })
     const rawImg = product.image || product.img || product.thumbnail || (Array.isArray(product.images) && product.images[0]);
     if (rawImg) {
       if (rawImg.startsWith('http://') || rawImg.startsWith('https://')) return rawImg;
-      return `${BaseUrl}${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+      return `${BaseUrl}api/Products${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
     }
     return 'https://via.placeholder.com/150';
   };
