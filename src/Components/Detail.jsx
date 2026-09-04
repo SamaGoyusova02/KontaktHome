@@ -175,7 +175,10 @@ function Detail() {
       toggleCompare(product);
     }
   };
-
+const hasColors = Boolean(
+    product.variants && 
+    product.variants.some(v => v.colorRGB)
+  );
   return (
     <div className="container mx-auto py-0 lg:py-6 max-w-[1480px] lg:mt-[120px] mt-[150px]">
       <div className="grid grid-cols-1 w-full lg:grid-cols-12 gap-2 p-0 lg:p-6 rounded-none lg:rounded-2xl select-none h-auto overflow-visible lg:h-[620px]">
@@ -304,29 +307,33 @@ function Detail() {
           </div>
 
           <hr className='text-[#f3f3f3] my-3' />
-
-          {/* RƏNG SEÇİMİ */}
-          <div>
-            <div className="flex gap-3 items-center">
-              {product.variants?.map((v, index) => {
-                if (!v.colorRGB) return null;
-                const isActive = activeVariant?.colorName === v.colorName;
-                return (
-                  <button
-                    key={index}
-                    style={{ backgroundColor: v.colorRGB }}
-                    onClick={() => handleVariantChange(v)}
-                    className={`w-5.5 h-5.5 rounded-full border transition-all ${
-                      isActive
-                        ? 'ring-1 ring-offset-2'
-                        : 'border-gray-300'
-                    }`}
-                    title={v.colorName}
-                  />
-                );
-              })}
-            </div>
-          </div>
+         
+            {/* RƏNG SEÇİMİ */}
+           {hasColors && (
+           <>
+             <div>
+               <div className="flex gap-3 items-center">
+                 {product.variants?.map((v, index) => {
+                   if (!v.colorRGB) return null;
+                   const isActive = activeVariant?.colorName === v.colorName;
+                   return (
+                     <button
+                       key={index}
+                       style={{ backgroundColor: v.colorRGB }}
+                       onClick={() => handleVariantChange(v)}
+                       className={`w-5.5 h-5.5 rounded-full border transition-all ${
+                         isActive
+                           ? 'ring-1 ring-offset-2'
+                           : 'border-gray-300'
+                       }`}
+                       title={v.colorName}
+                     />
+                   );
+                 })}
+               </div>
+             </div>
+           </>
+         )}
 
           {/* YADDAŞ SEÇİMİ */}
           {hasStorages && (
