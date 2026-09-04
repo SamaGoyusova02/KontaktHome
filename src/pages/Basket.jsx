@@ -65,7 +65,7 @@ function Basket() {
   const formatPrice = (val) => Math.round(val).toLocaleString('az-AZ');
 
   return (
-    <div className="bg-[#f5f5f5] min-h-screen px-3 lg:px-9 pt-[166px] pb-10 font-[Montserrat,_sans-serif]">
+    <div className="bg-[#f5f5f5] min-h-screen px-3 lg:px-9 pt-[150px] lg:pt-[166px] pb-10 font-[Montserrat,_sans-serif]">
       <div className="mx-auto space-y-4">
 
         <div className="flex flex-col lg:flex-row gap-2 items-start">

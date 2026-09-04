@@ -90,16 +90,7 @@ function BasketContext({ children }) {
 
   return (
     <BasketContextData.Provider
-      value={{
-        basket,
-        addToCart,
-        updateCount,
-        removeFromCart,
-        toggleSelect,
-        toggleSelectAll,
-        removeSelected
-      }}
-    >
+      value={{ basket , addToCart , updateCount , removeFromCart , toggleSelect , toggleSelectAll , removeSelected }}>
       {children}
     </BasketContextData.Provider>
   );

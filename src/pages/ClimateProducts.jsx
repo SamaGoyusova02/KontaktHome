@@ -107,12 +107,13 @@ function ClimateProducts() {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [sortType, setSortType] = useState('low-high');
-
+  const BaseUrl = "https://kontakt-home-data.vercel.app/"
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:3000/api/Products');
+        const response = await axios.get(`${BaseUrl}api/Products`);
         const filteredById = response.data.filter(item => item.id >= 53 && item.id <= 79);
         setClimateProductsData(filteredById);
       } catch (err) {

@@ -112,7 +112,7 @@ export default function ComparePage() {
   }
 
   return (
-    <div className="bg-[#f2f2f2] min-h-screen pt-[180px] pb-16 px-4 lg:px-8 font-[Montserrat,_sans-serif] text-[#2c2c2c]">
+    <div className="bg-[#f2f2f2] min-h-screen pt-[160px] pb-16 px-4 lg:px-8 font-[Montserrat,_sans-serif] text-[#2c2c2c]">
     
       <div className="hidden lg:flex max-w-[1450px] mx-auto bg-white rounded-[10px] px-6 py-4 shadow-xs mb-6 items-center justify-between">
         <h1 className="text-xl sm:text-2xl font-bold text-[#2c2c2c]">Müqayisə</h1>

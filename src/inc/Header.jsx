@@ -21,6 +21,7 @@ import { BasketContextData } from '../Context/BasketContext';
 import { WishlistContextData } from '../Context/WishlistContext';
 import { CompareContextData } from '../Context/CompareContext'; 
 import MobileCatalogMenu from '../Components/MobileCatalogMenu';
+import Chat from '../Components/chat';
 
 function Header() {
   const [isMobileCatalogOpen, setIsMobileCatalogOpen] = useState(false);
@@ -83,6 +84,7 @@ const BaseUrl = "https://kontakt-home-data.vercel.app/"
       )}
 
       <header className='shadow-[0_0_9px_#f3f3f3] w-full fixed top-0 transition-all bg-white z-50'>
+        <Chat/>
         <div className='bg-[#ff003c] text-white text-center py-0.5 lg:py-0 relative z-10 font-[Montserrat,_sans-serif] flex flex-nowrap justify-center'>
           <h2 className="text-[18px] lg:text-[24px] font-[700] whitespace-nowrap">-50%-dək endirimi 24 ayadək böl</h2>
         </div>

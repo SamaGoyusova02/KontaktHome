@@ -17,6 +17,7 @@ import icon13 from "../assets/icon13.svg";
 import icon14 from "../assets/icon14.svg";
 import icon15 from "../assets/icon15.svg";
 import icon16 from "../assets/icon16.svg";
+import { Link } from "react-router";
 
 const catalogData = [
   {
@@ -196,13 +197,14 @@ export default function MobileCatalogMenu({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleBack = () => {
+ const handleBack = () => {
     if (menuLevel === 2) {
       setMenuLevel(1);
-      setSelectedSubCategory(null);
+      setSelectedSubCategory(null); 
     } else if (menuLevel === 1) {
-      setMenuLevel(0);
+      setMenuLevel(0); 
       setSelectedCategory(null);
+      setSelectedSubCategory(null);
     }
   };
 
@@ -264,17 +266,23 @@ export default function MobileCatalogMenu({ isOpen, onClose }) {
           </ul>
         )}
 
-        {menuLevel === 2 && selectedSubCategory && (
+       {menuLevel === 2 && selectedSubCategory && (
           <ul>
             <li className="p-4 text-[14px] font-[500] bg-gray-50 border-b border-gray-100">
               {selectedSubCategory.title}
             </li>
-            {selectedSubCategory.items.map((item, idx) => (
+            {selectedSubCategory?.items?.map((item, idx) => (
               <li 
                 key={idx}
-                className="p-4 border-b border-gray-100 hover:text-[#ff003c] cursor-pointer text-gray-600 text-[14px]"
+                className="border-b border-gray-100 hover:text-[#ff003c] cursor-pointer text-gray-600 text-[14px]"
               >
-                {item}
+                <Link 
+                  to="kondisionerler"
+                  onClick={onClose}
+                  className="block p-4 w-full h-full"
+                >
+                  {item}
+                </Link>
               </li>
             ))}
           </ul>

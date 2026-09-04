@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const CompareContextData = createContext();
 
-export const CompareProvider = ({ children }) => {
+export const CompareContext = ({ children }) => {
   const [compareList, setCompareList] = useState(() => {
     const saved = localStorage.getItem('compareList');
     return saved ? JSON.parse(saved) : [];
@@ -40,15 +40,9 @@ export const CompareProvider = ({ children }) => {
 
   return (
     <CompareContextData.Provider
-      value={{
-        compareList,
-        toggleCompare,
-        removeFromCompare,
-        clearCompare,
-        isInCompare,
-      }}
-    >
+      value={{ compareList , toggleCompare , removeFromCompare , clearCompare , isInCompare }} >
       {children}
     </CompareContextData.Provider>
   );
 };
+export default CompareContext;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FiInfo } from 'react-icons/fi';
 
 function DetailProperties({ product, selectedVariant, selectedStorage }) {
@@ -86,7 +86,7 @@ function DetailProperties({ product, selectedVariant, selectedStorage }) {
   });
 
   return (
-    <div className="bg-white p-7 rounded-[12px] font-[Montserrat,_sans-serif] max-w-[1480px] mx-5 flex flex-col gap-8">
+    <div className="bg-white p-7 rounded-[12px] font-[Montserrat,_sans-serif] max-w-[1480px] lg:mx-5 md:mx-5 flex flex-col gap-8">
       
       {/* 1. XÜSUSİYYƏTLƏR BÖLMƏSİ */}
       {validPropertiesList.length > 0 && (

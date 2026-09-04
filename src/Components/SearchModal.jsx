@@ -68,7 +68,6 @@ function SearchModal({ isOpen, onClose, products, searchQuery, setSearchQuery })
 
   return (
     <div className="fixed md:absolute inset-0 md:inset-auto md:top-full left-0 right-0 w-screen md:w-full h-screen md:h-auto bg-white shadow-2xl border-none md:border border-gray-100 z-[9999] overflow-y-auto p-4 md:mt-2 md:rounded-2xl md:max-h-[450px]">
-      
       {/* MOBİL YUXARI HİSSƏ */}
       <div className="flex md:hidden items-center gap-3 pb-3 mb-3 border-b border-gray-100 relative z-50">
         <button 

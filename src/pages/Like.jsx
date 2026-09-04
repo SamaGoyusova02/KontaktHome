@@ -130,7 +130,7 @@ export default function Like() {
  
   if (!wishlist || wishlist.length === 0) {
     return (
-      <div className="lg:mx-10 mx-3 mt-[166px] mb-12 font-[Montserrat,_sans-serif]">
+      <div className="lg:mx-10 mx-3 mt-[160px] lg:mt-[166px] mb-12 font-[Montserrat,_sans-serif]">
        
         <div className="bg-white h-[60px] sm:h-[80px] mb-3 flex items-center pl-6 rounded-lg shadow-sm">
           <h2 className="text-[18px] sm:text-[20px] font-[600] text-[#1c1c1c]">

@@ -23,6 +23,7 @@ import whitebasket from "../assets/whitebasket.svg";
 import wishlist from '../assets/wishlist.svg';
 import compareIcon from '../assets/compare.svg'; 
 import redCompare from "../assets/redCompare.svg"; 
+import Comment from './Comment';
 
 function Detail() {
   const location = useLocation();
@@ -83,7 +84,7 @@ function Detail() {
 
   if (!product) {
     return (
-      <div className="p-8 text-center pt-[100px]">
+      <div className="p-8 text-center pt-[10px]">
         <p className="text-red-500 font-bold">Məhsul tapılmadı!</p>
         <button
           onClick={() => navigate('/')}
@@ -176,11 +177,11 @@ function Detail() {
   };
 
   return (
-    <div className="container mx-auto py-6 max-w-[1480px] pt-[140px] ">
-      <div className="grid grid-cols-1 w-full b lg:grid-cols-12 gap-2 p-6 rounded-2xl select-none h-auto overflow-visible lg:h-[620px]">
+    <div className="container mx-auto py-0 lg:py-6 max-w-[1480px] lg:mt-[120px] mt-[150px]">
+      <div className="grid grid-cols-1 w-full lg:grid-cols-12 gap-2 p-0 lg:p-6 rounded-none lg:rounded-2xl select-none h-auto overflow-visible lg:h-[620px]">
 
         {/* SOL HİSSƏ: SLIDER */}
-        <div className="lg:col-span-6 flex items-center justify-center bg-white p-3 rounded-[10px] gap-6 h-full">
+        <div className="lg:col-span-6 flex items-center justify-center bg-white p-3 rounded-none lg:rounded-[10px] gap-6 h-full">
           <div className="flex flex-col items-center gap-2">
             <button
               onClick={handlePrevImage}
@@ -218,6 +219,32 @@ function Detail() {
           </div>
 
           <div className="relative flex-1 h-full max-h-[420px] flex items-center justify-center p-2">
+            {/* Mobil üçün tam yuxarıda (top-2, mt-0) yan-yana duran Compare və Wishlist düymələri */}
+            <div className="absolute top-2 right-2 mt-0 flex lg:hidden items-center gap-2 z-10">
+              <button 
+                onClick={handleToggleWishlist}
+                className="h-[40px] w-[40px] flex items-center justify-center bg-[#f7f5f5] rounded-[10px] shadow-sm hover:bg-[#eaeaea] transition-colors cursor-pointer"
+              >
+                {isWish ? (
+                  <FaHeart className="text-[#ff003c] text-[16px]" />
+                ) : (
+                  <img src={wishlist} alt="wishlist" className="w-4 h-4" />
+                )}
+              </button>
+
+              <button 
+                onClick={handleToggleCompare}
+                className="h-[40px] w-[40px] flex items-center justify-center bg-[#f7f5f5] rounded-[10px] shadow-sm hover:bg-[#eaeaea] transition-colors cursor-pointer"
+                title={isComp ? "Müqayisədən çıxar" : "Müqayisəyə əlavə et"}
+              >
+                <img 
+                  src={isComp ? redCompare : compareIcon} 
+                  alt="compare" 
+                  className="w-4 h-4" 
+                />
+              </button>
+            </div>
+
             <img
               src={imagesList[selectedImageIndex] || imagesList[0]}
               alt={product.title}
@@ -236,7 +263,7 @@ function Detail() {
         </div>
 
         {/* SAĞ HİSSƏ */}
-        <div className="lg:col-span-6 flex flex-col gap-1 bg-white text-[#111] rounded-[10px] h-full overflow-y-auto p-4 detailScroll">
+        <div className="lg:col-span-6 flex flex-col gap-1 bg-white text-[#111] rounded-none lg:rounded-[10px] h-full overflow-y-auto p-4 detailScroll">
 
           <a href="#brand" className="text-[#379fc6] text-[14px]">
             Brand səhifəsinə keç
@@ -263,9 +290,9 @@ function Detail() {
                 <span className='text-[#ff9933]'><FaStar /></span>
                 <span className='text-[#323232] font-[Montserrat,_sans-serif] text-[12px]'>{product?.rating}</span>
               </div>
-              <button className="flex items-center gap-0.5 font-[Montserrat,_sans-serif] border border-[#eaeaea] rounded-[20px] px-3 py-1 text-[#323232]">
+              <button href="#Comments" className="flex items-center gap-0.5 font-[Montserrat,_sans-serif] border border-[#eaeaea] rounded-[20px] px-3 py-1 text-[#323232]">
                 <AiOutlineMessage />
-                <span className='text-[12px] font-[500]'>Rəylər 6</span>
+                <span  className='text-[12px] font-[500]'>Rəylər 6</span>
               </button>
             </div>
             <div className='flex items-center gap-1'>
@@ -366,23 +393,23 @@ function Detail() {
                 {isInCart ? (
                   <Link
                     to="/Səbət"
-                    className="flex-1 min-w-[140px] sm:min-w-[200px] border border-[#22c55e] bg-white text-[#22c55e] font-[Montserrat,_sans-serif] h-[50px] px-4 rounded-[10px] font-[500] flex items-center justify-center gap-2 text-sm no-underline cursor-pointer"
+                    className="flex-1 min-w-[120px] sm:min-w-[200px] border border-[#22c55e] bg-white text-[#22c55e] font-[Montserrat,_sans-serif] h-[50px] px-2 sm:px-4 rounded-[10px] font-[500] flex items-center justify-center gap-2 text-sm no-underline cursor-pointer"
                   >
-                    <img src={greenBasket} alt="greenbasket" className="w-5 h-5" />
+                    <img src={greenBasket} alt="greenbasket" className="w-5 h-5 shrink-0" />
                     <span>Səbətdə</span>
                   </Link>
                 ) : (
                   <button 
                     onClick={handleAddToCart}
-                    className="flex-1 min-w-[140px] sm:min-w-[200px] bg-[#ff003c] font-[Montserrat,_sans-serif] text-white h-[50px] px-4 rounded-[10px] font-[500] flex items-center justify-center gap-2 text-sm hover:bg-[#e00035] transition-colors cursor-pointer"
+                    className="flex-1 min-w-[120px] sm:min-w-[200px] bg-[#ff003c] font-[Montserrat,_sans-serif] text-white h-[50px] px-2 sm:px-4 rounded-[10px] font-[500] flex items-center justify-center gap-2 text-sm hover:bg-[#e00035] transition-colors cursor-pointer"
                   >
-                    <img src={whitebasket} alt="whitebasket" className="w-5 h-5" />
+                    <img src={whitebasket} alt="whitebasket" className="w-5 h-5 shrink-0" />
                     <span>Səbətə at</span>
                   </button>
                 )}
 
-                <button onClick={() => setIsOneclickOpen(true)} className="flex-1 min-w-[130px] sm:min-w-[180px] border border-[#323232] font-[Montserrat,_sans-serif] text-[#323232] h-[50px] px-2 rounded-[10px] font-[500] transition-colors flex items-center justify-center gap-2 text-sm hover:bg-gray-50 cursor-pointer">
-                  <img src={hand} alt="hand" />
+                <button onClick={() => setIsOneclickOpen(true)} className="flex-1 min-w-[120px] sm:min-w-[180px] border border-[#323232] font-[Montserrat,_sans-serif] text-[#323232] h-[50px] px-2 rounded-[10px] font-[500] transition-colors flex items-center justify-center gap-2 text-sm hover:bg-gray-50 cursor-pointer">
+                  <img src={hand} alt="hand" className="shrink-0" />
                   <span>Bir kliklə al</span>
                 </button>
               </div>
@@ -398,7 +425,8 @@ function Detail() {
               </div>
             )}
 
-            <div className="flex items-center gap-2 shrink-0">
+            {/* Desktop  */}
+            <div className="hidden lg:flex items-center gap-2 shrink-0">
               <button 
                 onClick={handleToggleCompare}
                 className="h-[50px] w-[50px] flex items-center justify-center bg-[#f7f5f5] rounded-[10px] shrink-0 hover:bg-[#eaeaea] transition-colors cursor-pointer"
@@ -451,14 +479,14 @@ function Detail() {
           </div>
         </div>
       </div>
-          
+         
       <DetailProperties
         product={product}
         selectedVariant={activeVariant}
         selectedStorage={selectedStorage}
         selectedColor={activeVariant?.colorName}
       />
-
+      <Comment product={product}  />
       <VideoModal
         videoUrl={product?.video}
         isOpen={isVideoModalOpen}

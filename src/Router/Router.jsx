@@ -20,7 +20,6 @@ import Error from '../pages/Error'
 function Router() {
   return (
   <>
-  <ScrollToTop/>
     <Routes>
         <Route path='/' element={<Layout/>}>
         <Route index element={<Main/>}/>
