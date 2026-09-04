@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import { BasketContextData } from '../Context/BasketContext';
 import Basketempty from "../assets/Basketempty.svg";
 import { FiTrash2, FiMinus, FiPlus, FiX } from "react-icons/fi";
-import { GoPlus } from "react-icons/go";
 import OneClick from '../Components/OneClick';
 
 function Basket() {
@@ -171,10 +170,7 @@ function Basket() {
                       </div>
                     </div>
 
-                    <button className="flex sm:hidden bg-[#f3f3f3] hover:bg-gray-200 w-full text-[#323232] text-xs font-[500] py-2.5 rounded-xl gap-1.5 transition-colors mt-1">
-                      <GoPlus className="text-base" />
-                      <span>Zəmanət</span>
-                    </button>
+                   
 
                     <div className="hidden sm:flex items-center gap-6 w-auto">
                       <div className="flex items-center gap-3 border border-gray-200 rounded-full py-1 px-3">

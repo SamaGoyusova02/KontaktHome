@@ -56,12 +56,14 @@ function Header() {
         setScroll(false);
       }
     };
+    
     window.addEventListener('scroll', Scroll);
     return () => window.removeEventListener('scroll', Scroll);
   }, []);
+const BaseUrl = "https://kontakt-home-data.vercel.app/"
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/Products")
+    axios.get(`${BaseUrl}api/Products`)
       .then(res => setProductsData(res.data))
       .catch(err => console.error("Axios API xətası:", err));
   }, []);

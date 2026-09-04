@@ -15,6 +15,7 @@ import ComparePage from '../pages/ComparePage'
 import BestWarranty from '../pages/BestWarranty'
 import DoorClearance from '../pages/DoorClearance'
 import ClimateProducts from '../pages/ClimateProducts'
+import Error from '../pages/Error'
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function Router() {
         <Route path='en-yaxsi-qiymete-zemanet' element={<BestWarranty/>}/>
         <Route path='catdirilma-ve-odeme' element={<DoorClearance/>}/>
         <Route path='kondisionerler' element={<ClimateProducts/>}/>
+        <Route path='*' element={<Error/>}/>
         </Route>
     </Routes>
   </>
