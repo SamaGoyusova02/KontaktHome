@@ -32,10 +32,12 @@ function SearchModal({ isOpen, onClose, products, searchQuery, setSearchQuery })
         return activeVariant.images[0];
       }
     }
+   const BaseUrl = "https://kontakt-home-data.vercel.app/"
+
     const rawImg = product.image || product.img || product.thumbnail || (Array.isArray(product.images) && product.images[0]);
     if (rawImg) {
       if (rawImg.startsWith('http://') || rawImg.startsWith('https://')) return rawImg;
-      return `http://localhost:3000${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+      return `${BaseUrl}${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
     }
     return 'https://via.placeholder.com/150';
   };
