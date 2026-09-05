@@ -38,7 +38,7 @@ function SearchModal({ isOpen, onClose, products, searchQuery, setSearchQuery })
     if (rawImg) {
       if (rawImg.startsWith('http://') || rawImg.startsWith('https://')) return rawImg;
       // Buradan "api/Products" hissəsi silindi:
-      return `${BaseUrl}${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+      return `${BaseUrl.replace(/\/$/, '')}${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
     }
     return 'https://via.placeholder.com/150';
   };

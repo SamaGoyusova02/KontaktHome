@@ -103,16 +103,10 @@ const BaseUrl = "https://kontakt-home-data.vercel.app/"
             </ul>
 
             <div className='flex items-center gap-3 lg:gap-5 shrink-0'>
-              <h2 className='lg:text-[22px] md:text-[20px] font-[540] font-[Montserrat,_sans-serif]'><span className='text-[#ff0000]'>*</span>6060</h2>
+              <h2 className='lg:text-[22px] md:text-[20px] font-[500] font-[Montserrat,_sans-serif]'><span className='text-[#ff0000]'>*</span>6060</h2>
               <button 
                 onClick={() => setIsPaymentModalOpen(true)}
-                className='hidden md:flex lg:flex text-[#17a539] border border-[#17a539] font-[Montserrat,_sans-serif] px-3 lg:px-4 py-1.5 rounded-[10px] text-[13px] lg:text-[14px] whitespace-nowrap transition-colors duration-300'
-              >
-                Aylıq Ödəniş
-              </button>
-
-              
-             
+                className='hidden md:flex lg:flex text-[#17a539] border border-[#17a539] font-[Montserrat,_sans-serif] px-3 lg:px-4 py-1.5 rounded-[10px] text-[13px] lg:text-[14px] whitespace-nowrap transition-colors duration-300'>Aylıq Ödəniş </button> 
             </div>
             
             <img 
