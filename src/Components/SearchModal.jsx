@@ -25,23 +25,23 @@ function SearchModal({ isOpen, onClose, products, searchQuery, setSearchQuery })
     return titleLower.startsWith(queryLower);
   });
 
-  const getProductImage = (product) => {
+ const getProductImage = (product) => {
     if (product.variants && product.variants.length > 0) {
       const activeVariant = product.variants.find(v => v.images && v.images.length > 0);
       if (activeVariant && activeVariant.images[0]) {
         return activeVariant.images[0];
       }
     }
-   const BaseUrl = "https://kontakt-home-data.vercel.app/"
+    const BaseUrl = "https://kontakt-home-data.vercel.app/"
 
     const rawImg = product.image || product.img || product.thumbnail || (Array.isArray(product.images) && product.images[0]);
     if (rawImg) {
       if (rawImg.startsWith('http://') || rawImg.startsWith('https://')) return rawImg;
-      return `${BaseUrl}api/Products${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+      // Buradan "api/Products" hissəsi silindi:
+      return `${BaseUrl}${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
     }
     return 'https://via.placeholder.com/150';
   };
-
   const handleClose = (e) => {
     if (e) {
       e.preventDefault();

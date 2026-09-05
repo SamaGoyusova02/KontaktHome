@@ -111,13 +111,8 @@ const BaseUrl = "https://kontakt-home-data.vercel.app/"
                 Aylıq Ödəniş
               </button>
 
-              <button className='hidden md:flex lg:flex bg-[#f3f3f3] px-3 lg:px-4 py-1.5 rounded-[10px] whitespace-nowrap text-[13px] lg:text-[14px]'>Daxil ol</button>
-              <div className='relative cursor-pointer' onClick={() => setOpendrop(!opendrop)}>
-                <div className='flex items-center gap-0.5'><span>AZ</span> <MdKeyboardArrowDown className={`transform duration-300 ${opendrop ? 'rotate-180' : ''}`} /></div>
-                {opendrop && (
-                  <span className='absolute right-0 mt-3 w-[160px] text-[#323232] font-[Montserrat,_sans-serif] py-1 flex justify-start pl-3 items-center shadow-[0_0_10px_#e5e5e5] rounded-[5px] bg-white z-50'>RU</span>
-                )}
-              </div>
+              
+             
             </div>
             
             <img 
