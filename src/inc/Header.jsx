@@ -21,7 +21,7 @@ import { BasketContextData } from '../Context/BasketContext';
 import { WishlistContextData } from '../Context/WishlistContext';
 import { CompareContextData } from '../Context/CompareContext'; 
 import MobileCatalogMenu from '../Components/MobileCatalogMenu';
-import Chat from '../Components/chat';
+import Chat from '../Components/Chat';
 
 function Header() {
   const [isMobileCatalogOpen, setIsMobileCatalogOpen] = useState(false);
